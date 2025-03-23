@@ -19,12 +19,14 @@ classDiagram
     }
 
     class Balance {
+        +long id
         +float total
         +float monthlyIncome
         +float remainingBalance
     }
 
     class Expenses {
+         +long id
         +float monthlyTotal
         +float total
         +float recurring
