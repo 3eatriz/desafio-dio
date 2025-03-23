@@ -16,6 +16,7 @@ public class Expense {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String expenseName;
 
     @ManyToOne
@@ -30,15 +31,15 @@ public class Expense {
     @JoinColumn(name = "payment_done_id", nullable = false)
     private PaymentDone paymentDone;
 
-    @Column(scale = 2, precision = 13, name = "expense_value")
+    @Column(scale = 2, precision = 13, name = "expense_value", nullable = false)
     private BigDecimal value;
     private Integer currentInstallment;
     private Integer totalInstallments;
 
-    @Column(scale = 2, precision = 13)
+    @Column(scale = 2, precision = 13, nullable = false)
     private BigDecimal totalValue;
 
-    @Column(length = 300)
+    @Column(length = 300, nullable = true)
     private String notes;
 
     public Expense() {
