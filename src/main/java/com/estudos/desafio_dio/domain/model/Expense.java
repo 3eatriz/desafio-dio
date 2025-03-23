@@ -30,12 +30,12 @@ public class Expense {
     @JoinColumn(name = "payment_done_id", nullable = false)
     private PaymentDone paymentDone;
 
-    @Column(scale = 13, precision = 2, name = "expense_value")
+    @Column(scale = 2, precision = 13, name = "expense_value")
     private BigDecimal value;
     private Integer currentInstallment;
     private Integer totalInstallments;
 
-    @Column(scale = 13, precision = 2)
+    @Column(scale = 2, precision = 13)
     private BigDecimal totalValue;
 
     @Column(length = 300)
