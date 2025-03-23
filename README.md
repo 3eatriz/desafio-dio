@@ -10,42 +10,74 @@ https://www.figma.com/design/TJFjDf94hdnrMJQy04KILr/Desafios-DIO-Decola-Tech-202
 ```mermaid
 classDiagram
     class User {
-        +long id
-        +string name
-        +string avatar
+        +Long id
+        +String name
+        +String avatar
         +Balance balance
         +Expenses expenses
-        +list<Expense> expenseList
+        +List<Expense> expenseList
     }
 
     class Balance {
-        +long id
-        +float total
-        +float monthlyIncome
-        +float remainingBalance
+        +Long id
+        +BigDecimal total
+        +BigDecimal monthlyIncome
+        +BigDecimal remainingBalance
     }
 
     class Expenses {
-         +long id
-        +float monthlyTotal
-        +float total
-        +float recurring
+        +Long id
+        +BigDecimal monthlyTotal
+        +BigDecimal total
+        +BigDecimal recurring
     }
 
     class Expense {
-        +long id
-        +string expenseName
-        +string nextPayment
-        +string paymentType
-        +float value
-        +bool paymentDone
-        +int currentInstallment
-        +int totalInstallments
-        +float totalValue
-        +string notes
+        +Long id
+        +String expenseName
+        +NextPayment nextPayment
+        +PaymentType paymentType
+        +PaymentDone paymentDone
+        +BigDecimal value
+        +Integer currentInstallment
+        +Integer totalInstallments
+        +BigDecimal totalValue
+        +String notes
+    }
+
+    class BaseItemPayment {
+        +Long id
+        +String name
+        +String color
+    }
+
+    class NextPayment {
+        +Long id
+        +String name
+        +String color
+    }
+
+    class PaymentDone {
+        +Long id
+        +String name
+        +String color
+    }
+
+    class PaymentType {
+        +Long id
+        +String name
+        +String color
     }
 
     User "1" *-- "1" Balance
     User "1" *-- "1" Expenses
     User "1" *-- "N" Expense
+
+    Expense "N" o-- "1" PaymentType
+    Expense "N" o-- "1" PaymentDone
+    Expense "N" o-- "1" NextPayment
+
+    BaseItemPayment <|-- NextPayment
+    BaseItemPayment <|-- PaymentDone
+    BaseItemPayment <|-- PaymentType
 ```
