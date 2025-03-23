@@ -10,7 +10,7 @@ https://www.figma.com/design/TJFjDf94hdnrMJQy04KILr/Desafios-DIO-Decola-Tech-202
 ```mermaid
 classDiagram
     class User {
-        +int id
+        +long id
         +string name
         +string avatar
         +Balance balance
@@ -31,7 +31,7 @@ classDiagram
     }
 
     class Expense {
-        +int id
+        +long id
         +string expenseName
         +string nextPayment
         +string paymentType
